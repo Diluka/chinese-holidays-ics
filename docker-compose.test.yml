@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  app:
+    image: diluka/chinese-holidays-ics
+    build: .
+    ports:
+      - "3000:3000"
+  sut:
+    image: curlimages/curl
+    command: -sSL --retry 5 --retry-connrefused --retry-delay 30 -I http://app:3000
+    depends_on:
+      - app

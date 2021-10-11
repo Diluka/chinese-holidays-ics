@@ -7,10 +7,14 @@ import http from 'http';
 (async () => {
   const calendar = ical({ name: '中国节假日', timezone: 'Asia/Shanghai' });
 
+  console.log('正在准备节假日数据...');
+
   await ChineseHolidays.ready((book, err) => {
     if (err) {
       throw err;
     }
+
+    console.log('节假日数据加载完成');
 
     for (const event of book.events()) {
       console.log(
@@ -39,7 +43,7 @@ import http from 'http';
 
   http
     .createServer((req, res) => calendar.serve(res))
-    .listen(3000, '127.0.0.1', () => {
-      console.log('Server running at http://127.0.0.1:3000/');
+    .listen(3000, () => {
+      console.log('Server running at http://localhost:3000/');
     });
 })();
