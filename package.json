@@ -1,7 +1,9 @@
 {
   "name": "chinese-holidays-ics",
   "version": "1.0.0",
-  "description": "",
+  "description": "中国节假日日历订阅服务器",
+  "private": true,
+  "repository": "https://github.com/Diluka/chinese-holidays-ics",
   "main": "index.js",
   "type": "module",
   "scripts": {
