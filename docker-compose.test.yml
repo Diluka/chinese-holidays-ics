@@ -3,7 +3,10 @@ version: '3'
 services:
   app:
     image: diluka/chinese-holidays-ics
-    build: .
+    build:
+      context: .
+      args: 
+        - NPM_CONFIG_REGISTRY=https://r.cnpmjs.org
     ports:
       - "3000:3000"
   sut:

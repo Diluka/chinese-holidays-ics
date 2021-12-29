@@ -4,6 +4,8 @@ import _ from 'lodash';
 import moment from 'moment';
 import http from 'http';
 
+const port = +process.env.SERVER_PORT || 3000;
+
 async function createCalendar() {
   const calendar = ical({ name: '中国节假日', timezone: 'Asia/Shanghai' });
   console.log('正在准备节假日数据...');
@@ -42,7 +44,7 @@ async function createCalendar() {
 
   http
     .createServer((req, res) => calendar.serve(res))
-    .listen(3000, () => {
-      console.log('Server running at http://localhost:3000/');
+    .listen(port, () => {
+      console.log(`Server running at http://localhost:${port}/`);
     });
 })();
