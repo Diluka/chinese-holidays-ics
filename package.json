@@ -7,7 +7,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "test:download": "curl -sSL localhost:3000 -o calendar.ics"
   },
   "keywords": [],
   "author": "Diluka",

@@ -16,10 +16,13 @@ async function createCalendar() {
   for (const event of book.events()) {
     console.log(event.name, event.days(), event.isHoliday(), event.isWorkingday());
 
+    const from = _.first(event.days());
+    const to = _.last(event.days());
+
     calendar.createEvent({
-      id: `HD-CN-${+_.first(event.days())}`,
-      start: moment(_.first(event.days())).startOf('d'),
-      end: moment(_.last(event.days())).endOf('d'),
+      id: `HD-CN-${+from}`,
+      start: moment(from),
+      end: moment(to).add(1, 'd'),
       summary: event.name + (event.isWorkingday() ? '补班' : ''),
       allDay: true,
       alarms: event.isWorkingday()
