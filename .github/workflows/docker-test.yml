@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker-compose -f docker-compose.test.yml build
+      run: docker-compose build
     - name: Test image
-      run: docker-compose -f docker-compose.test.yml run --rm sut
+      run: docker-compose -f docker-compose.yml -f docker-compose.test.yml run --rm sut
