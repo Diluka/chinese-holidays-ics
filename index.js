@@ -7,7 +7,7 @@ import http from 'http';
 const port = +process.env.SERVER_PORT || 3000;
 
 async function createCalendar() {
-  const calendar = ical({ name: '中国节假日', timezone: 'Asia/Shanghai' });
+  const calendar = ical({ name: '中国放假安排', timezone: 'Asia/Shanghai' });
   console.log('正在准备节假日数据...');
 
   const book = await ChineseHolidays.ready();
