@@ -19,20 +19,26 @@ async function createCalendar() {
     const from = _.first(event.days());
     const to = _.last(event.days());
 
-    calendar.createEvent({
+    const ev = calendar.createEvent({
       id: `HD-CN-${+from}`,
       start: moment(from),
       end: moment(to).add(1, 'd'),
       summary: event.name + (event.isWorkingday() ? '补班' : ''),
       allDay: true,
-      alarms: event.isWorkingday()
-        ? event.days().map((o) => ({
-            type: 'display',
-            trigger: moment(o).add(-4, 'hours'),
-            description: '明天要上班记得定闹钟',
-          }))
-        : undefined,
     });
+
+    if (event.isWorkingday()) {
+      const description = '明天要上班记得定闹钟';
+      ev.description(description);
+
+      event.days().map((o) =>
+        ev.createAlarm({
+          type: 'display',
+          trigger: moment(o).add(-4, 'hours'),
+          description,
+        }),
+      );
+    }
   }
 
   return calendar;
