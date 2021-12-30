@@ -10,7 +10,12 @@
     "start": "node .",
     "test:download": "curl -sSL localhost:3000 -o calendar.ics"
   },
-  "keywords": [],
+  "keywords": [
+    "holidays",
+    "china",
+    "chinese",
+    "ics"
+  ],
   "author": "Diluka",
   "license": "ISC",
   "dependencies": {
