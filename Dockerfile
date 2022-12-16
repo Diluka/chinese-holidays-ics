@@ -1,4 +1,4 @@
-ARG NODE_VERSION=16
+ARG NODE_VERSION=18
 FROM node:${NODE_VERSION}-alpine
 
 # 设置时区为CST
@@ -15,7 +15,7 @@ RUN npm i -g healthcheck-cli
 ADD package.json .
 ADD package-lock.json .
 
-RUN npm ci --prefer-offline
+RUN npm ci
 
 ADD . .
 

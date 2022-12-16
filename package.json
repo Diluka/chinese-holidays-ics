@@ -20,15 +20,15 @@
   "author": "Diluka",
   "license": "ISC",
   "dependencies": {
-    "chinese-holidays": "^1.4.1",
-    "ical-generator": "^3.1.1",
+    "chinese-holidays": "^1.5.0",
+    "ical-generator": "^3.6.0",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1"
+    "moment": "^2.29.4"
   },
   "devDependencies": {
-    "eslint": "^8.6.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.5.1"
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.1"
   }
 }
